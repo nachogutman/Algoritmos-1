@@ -3,7 +3,6 @@ package aed;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
 class FuncionesTest {
@@ -128,7 +127,7 @@ class FuncionesTest {
 
 /***  Segunda parte: Debugging ***/
 
-    /*
+    
     @Test
     void testXOR() {
         assertFalse(funciones.xor(false, false));
@@ -136,7 +135,7 @@ class FuncionesTest {
         assertTrue(funciones.xor(true, false));
         assertFalse(funciones.xor(true, true));
     }
-
+    
     @Test
     void testIguales() {
         assertTrue(funciones.iguales(new int[0], new int[0]));
@@ -177,7 +176,132 @@ class FuncionesTest {
         assertFalse(funciones.todosPositivos(new int[]{7, 4, 0}));
         assertFalse(funciones.todosPositivos(new int[]{7, -2, 4}));
     }
-    */
     
+
+    /*** Ejercicio 1 – cuadrado ***/
+    @Test
+    void testCuadradoExtra() {
+        assertEquals(0, funciones.cuadrado(0));
+        assertEquals(1, funciones.cuadrado(-1));   // negativo
+        assertEquals(1000000, funciones.cuadrado(1000)); // grande
+    }
+
+    /*** Ejercicio 2 – distancia ***/
+    @Test
+    void testDistanciaExtra() {
+        assertEquals(13, funciones.distancia(5, 12), 1e-5); // triple pitagórico
+        assertEquals(7, funciones.distancia(0, -7), 1e-5); // eje Y negativo
+    }
+
+    /*** Ejercicio 3 – esPar ***/
+    @Test
+    void testEsParExtra() {
+        assertTrue(funciones.esPar(1000000));   // grande
+        assertFalse(funciones.esPar(999999));
+    }
+
+    /*** Ejercicio 4 – esBisiesto ***/
+    @Test
+    void testEsBisiestoExtra() {
+        assertTrue(funciones.esBisiesto(2400)); // múltiplo de 400
+        assertFalse(funciones.esBisiesto(1900)); // múltiplo de 100 pero no de 400
+    }
+
+    /*** Ejercicio 5 – factorial ***/
+    @Test
+    void testFactorialExtra() {
+        assertEquals(1, funciones.factorialIterativo(0));
+        assertEquals(720, funciones.factorialRecursivo(6));
+        assertEquals(479001600, funciones.factorialIterativo(12)); // límite int32
+    }
+
+    /*** Ejercicio 6 – esPrimo ***/
+    @Test
+    void testEsPrimoExtra() {
+        assertTrue(funciones.esPrimo(97)); // primo mayor
+        assertFalse(funciones.esPrimo(100)); // compuesto
+    }
+
+    /*** Ejercicio 7 – sumatoria ***/
+    @Test
+    void testSumatoriaExtra() {
+        assertEquals(0, funciones.sumatoria(new int[]{})); // vacío
+        assertEquals(-6, funciones.sumatoria(new int[]{-1,-2,-3}));
+    }
+
+    /*** Ejercicio 8 – busqueda ***/
+    @Test
+    void testBusquedaExtra() {
+        assertEquals(1, funciones.busqueda(new int[]{4, 5, 6}, 5));
+        assertEquals(0, funciones.busqueda(new int[]{5, 5, 5}, 5)); // repetidos
+    }
+
+    /*** Ejercicio 9 – tienePrimo ***/
+    @Test
+    void testTienePrimoExtra() {
+        assertFalse(funciones.tienePrimo(new int[]{})); // vacío
+        assertTrue(funciones.tienePrimo(new int[]{4,6,9,11})); // último es primo
+    }
+
+    /*** Ejercicio 10 – todosPares ***/
+    @Test
+    void testTodosParesExtra() {
+        assertTrue(funciones.todosPares(new int[]{})); // vacíamente verdadero
+        assertFalse(funciones.todosPares(new int[]{2,4,5}));
+    }
+
+    /*** Ejercicio 11 – esPrefijo ***/
+    @Test
+    void testEsPrefijoExtra() {
+        assertTrue(funciones.esPrefijo("", "hola")); // vacío es prefijo
+        assertFalse(funciones.esPrefijo("hola mundo", "hola")); // más largo
+    }
+
+    /*** Ejercicio 12 – esSufijo ***/
+    @Test
+    void testEsSufijoExtra() {
+        assertTrue(funciones.esSufijo("", "hola")); // vacío es sufijo
+        assertFalse(funciones.esSufijo("mundo hola", "hola")); // más largo
+    }
+
+    /*** Ejercicio 13 – xor ***/
+    @Test
+    void testXorExtra() {
+        assertFalse(funciones.xor(false, false));
+        assertTrue(funciones.xor(true, false));
+        assertTrue(funciones.xor(false, true));
+        assertFalse(funciones.xor(true, true));
+    }
+
+    /*** Ejercicio 14 – iguales ***/
+    @Test
+    void testIgualesExtra() {
+        assertTrue(funciones.iguales(new int[]{}, new int[]{}));
+        assertFalse(funciones.iguales(new int[]{1,2}, new int[]{2,1})); // distinto orden
+        assertFalse(funciones.iguales(new int[]{1,2,3}, new int[]{1,2}));
+    }
+
+    /*** Ejercicio 15 – todosPositivos ***/
+    @Test
+    void testTodosPositivosExtra() {
+        assertTrue(funciones.todosPositivos(new int[]{1,2,3}));
+        assertFalse(funciones.todosPositivos(new int[]{0,1,2})); // 0 no es positivo
+    }
+
+    /*** Ejercicio 16 – maximo ***/
+    @Test
+    void testMaximoExtra() {
+        assertEquals(7, funciones.maximo(new int[]{7})); // único elemento
+        assertEquals(10, funciones.maximo(new int[]{1,10,5}));
+        assertEquals(-1, funciones.maximo(new int[]{-3,-1,-5}));
+    }
+
+    /*** Ejercicio 17 – ordenado ***/
+    @Test
+    void testOrdenadoExtra() {
+        assertTrue(funciones.ordenado(new int[]{1,2,2,3}));
+        assertFalse(funciones.ordenado(new int[]{5,4,3}));
+    }
+
 
 }
