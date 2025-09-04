@@ -1,0 +1,40 @@
+package aed;
+
+public class Recordatorio {
+    private String mensaje;
+    private Fecha fecha;
+    private Horario horario;
+
+    public Recordatorio(String mensaje, Fecha fecha, Horario horario) {
+        this.mensaje = mensaje;
+        this.fecha = fecha;
+        this.horario = horario;
+    }
+
+    public Horario horario() {
+        return this.horario;
+    }
+
+    public Fecha fecha() {
+        return this.fecha;
+    }
+
+    public String mensaje() {
+        return this.mensaje;
+    }
+
+    @Override
+    public String toString() {
+        return mensaje + " @ " + fecha.toString() + " " + horario.toString();
+    }
+
+    @Override
+    public boolean equals(Object otro) {
+        if(otro == this){
+            return true;
+        }
+        Recordatorio r = (Recordatorio) otro;
+        return this.mensaje == r.mensaje && this.fecha == r.fecha && this.horario == r.horario;
+    }
+
+}
