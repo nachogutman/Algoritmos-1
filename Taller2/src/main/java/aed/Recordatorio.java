@@ -6,21 +6,21 @@ public class Recordatorio {
     private Horario horario;
 
     public Recordatorio(String mensaje, Fecha fecha, Horario horario) {
-        this.mensaje = mensaje;
-        this.fecha = fecha;
-        this.horario = horario;
+        this.mensaje = new String(mensaje);
+        this.fecha = new Fecha(fecha);
+        this.horario = new Horario(horario.hora(), horario.minutos());
     }
 
     public Horario horario() {
-        return this.horario;
+        return new Horario(this.horario.hora(), this.horario.minutos());
     }
 
     public Fecha fecha() {
-        return this.fecha;
+        return new Fecha(this.fecha);
     }
 
     public String mensaje() {
-        return this.mensaje;
+        return new String(this.mensaje);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class Recordatorio {
             return true;
         }
         Recordatorio r = (Recordatorio) otro;
-        return this.mensaje == r.mensaje && this.fecha == r.fecha && this.horario == r.horario;
+        return this.mensaje.equals(r.mensaje) && this.fecha.equals(r.fecha) && this.horario.equals(r.horario);
     }
 
 }

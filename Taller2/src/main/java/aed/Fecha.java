@@ -31,6 +31,7 @@ public class Fecha {
         if(otra == this){
             return true;
         }
+        if (!(otra instanceof Fecha)) return false;
         Fecha f = (Fecha) otra;
         return this.dia == f.dia && this.mes == f.mes;
     }

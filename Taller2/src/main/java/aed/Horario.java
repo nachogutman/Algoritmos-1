@@ -19,21 +19,7 @@ public class Horario {
 
     @Override
     public String toString() {
-        String horaParseada = "";
-        if(this.hora > 9){
-            horaParseada += this.hora;
-        }else{
-            horaParseada += "0" + this.hora;
-        }
-
-        horaParseada += ":";
-
-        if(this.minutos > 9){
-            horaParseada += this.minutos;
-        }else{
-            horaParseada += "0" + this.minutos;
-        }
-        return horaParseada;
+        return this.hora + ":" + this.minutos;
     }
 
     @Override
@@ -41,6 +27,7 @@ public class Horario {
         if(otro == this){
             return true;
         }
+        if (!(otro instanceof Horario)) return false;
         Horario h = (Horario) otro;
         return this.hora == h.hora && this.minutos == h.minutos;
     }
